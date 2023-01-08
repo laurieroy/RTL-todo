@@ -58,5 +58,12 @@ describe("Todo", () => {
     expect(divElement).toHaveClass("todo-item-active");
   });
 
-
+  it('added todo should have not completed class when clicked twice', async () => {
+    render(<MockTodo />);
+ 
+    addTask(["Get beer"]);
+    const divElement = screen.getByText(/get beer/i);
+    fireEvent.doubleClick(divElement)
+    expect(divElement).not.toHaveClass("todo-item-active");
+  });
 })
