@@ -13,15 +13,17 @@ export default function FollowersList() {
 
     const fetchFollowers = async () => {
         const {data} = await axios.get("https://randomuser.me/api/?results=5")
+          console.log(data);
         setFollowers(data.results)
+      
     }
 
     return (
         <div className="followerslist-container">
             <>
                 {followers.map((follower, index) => (
-                    <div className="follower-item" key={follower}>
-                        data-testid={`follower-item-${index}`}
+                    <div className="follower-item"   key={follower.login.uuid} data-testid={`follower-item-${index}`}>
+                       
                         <img src={follower.picture.large} alt="profile pic"/>
                         <div className="followers-details">
                             <div className="follower-item-name">

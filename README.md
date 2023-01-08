@@ -4,10 +4,12 @@ This is a [code-along](https://www.youtube.com/watch?v=7dTTFW7yACQ&t=1s) from [L
 
 The original project is available at https://github.com/harblaith7/React-Testing-Library-Net-Ninja
 
-- To get the project to run, I had to run `export NODE_OPTIONS=--openssl-legacy-provider` since I'm using node v18
+- To get the project to run, I had to run `export NODE_OPTIONS=--openssl-legacy-provider` since I'm using node v18 (or downgrade node)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+He directly mocks the axios call instead of using MSW. To do this, had to add 
+ "resetMocks": false, and  "transformIgnorePatterns": ["node_modules/(?!axios/)"] since using axios 1+
 ## Available Scripts
 
 In the project directory, you can run:
